@@ -10,8 +10,21 @@
 
 <body>
 <div class="container">
-    <div class="highScore"><scr herf="link to high scores">link to high scores</scr></div>
     <h1>Multiple Choice Coding Quiz!</h1>
+
+    <!-- scoreboard from John's tutorial -->
+    <section class="scoreboard"></section>
+    <div class = "scoreboard_score"><p>High Score:</p><span class ="scoreboard_score_value"></span></div>
+     <!-- end of scoreboard section from John's tutorial -->
+
+    <!-- Game results: correct/ wrong area -->
+    <section class="game">
+        
+        <div class="timer">60seconds</div>
+        
+    
+    <!-- Game results: correct/ wrong area -->
+    <div class ="game_display">
         <form id="multipleCh">
             <title class="questionAsk">Filler for Asked Question</title>
                 <ul class="list">
@@ -21,12 +34,22 @@
                     <input type="radio">D. 6 meters from the nearest rail</label><br/>
                 </ul>
         </form>
-    <!-- submit button area -->
+       
+    <!-- Div for end of game display area -->
+    </div>
+    </section>
+
+    <!-- Game Control Areas -->
+    <section class="controls">
     <button class="btn">Enter</button>
     <button class="btn">Submit</button>
     <button class="btn">Go Back</button>
     <button class="btn">Clear High Scores</button>
+    </section>
+    <div class="game_results">Correct!/Wrong!</div>
 </div>
+<!-- End of Control Area -->
+
 <!-- end of question area  -->
 
   <!-- Added link to the jQuery library -->
@@ -35,3 +58,44 @@
 </body>
 
 </html>
+
+
+<!-- future or hidden text:
+
+Who is known as the father of computers?
+*Charles Babbage
+Thomas Edison 
+Alan Turning 
+Ada Lovelace
+
+What was the first computer to use color? 
+*Apple 1 
+Apple 1.5 
+IBM 650
+ipod shuffle  
+
+What was the first mass produced computer? 
+*IBM 650
+Apple Macbook
+Lonovo 150
+IBM 550 
+
+How many generations of computers are there? 
+*5
+200
+3
+10 
+
+How many langauges of coding exist? 
+700 
+365
+500
+400
+
+All Done! 
+your score is: 
+Enter initials: 
+
+Correct! 
+Incorrect!  -->
+

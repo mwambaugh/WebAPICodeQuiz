@@ -10,23 +10,73 @@ high scores page*/
 
 
 //DOM hooks:create variables for the elements that will receive input, that will display feedback
-var theButton = document.querySelector([.button]);
-var theQuiz = document.querySelector([]);
-var questionPrint = document.querySelector([]);
-var optionA = document.querySelector([]);
-var optionB = document.querySelector([]);
-var optionC = document.querySelector([]);
-var optionD= document.querySelector([]);
+var quizQuestions= querySelector, (.questionAsk);
 
-var resetQuiz = ();
-var showConfirm = ();
+// Array of objects for each question and choices, key:values of each question 
+var quizQuestions = [
+{
+Question: "Who is known as the father of computers?",
+options: {
+AnswerA: "Charles Babbage",
+AnswerB: "Thomas Edison", 
+AnswerC: "Alan Turning", 
+AnswerD: "Ada Lovelace"},
+correct: "Charles Babbage"
+},
 
-function resetQuiz(showConfirm) {
-  if(showConfirm)
-    if(!confirm("Are you sure you want to reset the quiz and start from the beginning?"))
-      return false;
-  document.location = document.location;
+{
+  Question: "What was the first computer to use color?", 
+options: {
+AnswerA:"Apple 1", 
+AnswerB: "Apple 1.5", 
+AnswerC: "IBM 650",
+AnswerD: "ipod shuffle",
+},
+correct:"Apple 1"
+},
+
+{Question: "What was the first mass produced computer?",
+options: {
+  AnswerA:"IBM 650",
+  AnswerB:"Apple Macbook",
+  AnswerC:"Lonovo 150",
+  AnswerD:"IBM 550 ",
+},
+correct:"IBM 650"
+},
+
+{Question: "How many generations of computers are there? ",
+options: {
+  AnswerA:"200",
+  AnswerB:"3",
+  AnswerC:"5",
+  AnswerD:"10",
+},
+correct:"5"
+},
+
+{Question: "How many langauges of coding exist? ",
+options: {
+  AnswerA:"365",
+  AnswerB:"400",
+  AnswerC:"500",
+  AnswerD:"700",
+},
+correct:"700"
+},
+
+{Question: "What is my favorite color?",
+options: {
+  AnswerA:"Blue",
+  AnswerB:"Green",
+  AnswerC:"Turquoise",
+  AnswerD:"Off-Yellow",
+},
+correct:"Turquoise"
 }
+
+
+If quizQuestions[0].options.AnswerA equals quizQuestions[0].correct then display.document.alert= "Correct!"
 
 
 /*Declare variables: state: What are the datq that need to be kept track of? 
@@ -61,14 +111,8 @@ It’s a common tool for coordinating code. For example, once you update state, 
       page. Start the execution of this setup function at the bottom of page
 */
 
-var Function theQuiz = {;
-
-}
-
-
 /*
  6. Refactor
     - identify tasks that can be broken into their own functions, outside the event handlers
     - Are there tasks that more than one event handler share?
 */
-return 
