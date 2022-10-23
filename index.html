@@ -12,90 +12,39 @@
 <div class="container">
     <h1>Multiple Choice Coding Quiz!</h1>
 
-    <!-- scoreboard from John's tutorial -->
+
+    <!-- High Score: -->
     <section class="scoreboard"></section>
-    <div class = "scoreboard_score"><p>High Score:</p><span class ="scoreboard_score_value"></span></div>
+    <div class = "scoreboard_score"><span>High Score is</span></div>
+    <div class = "name"><span>enter name here:_______</span></div>
+
+
      <!-- end of scoreboard section from John's tutorial -->
 
     <!-- Game results: correct/ wrong area -->
-    <section class="game">
+    <section class="game_timer">60 seconds</section>
         
-        <div class="timer">60seconds</div>
-        
-    
     <!-- Game results: correct/ wrong area -->
     <div class ="game_display">
-        <form id="multipleCh">
-            <title class="questionAsk">Filler for Asked Question</title>
-                <ul class="list">
-                    <input type="radio">A. Posible answer A</label><br/>
-                    <input type="radio">B. Posible answer B</label><br/>
-                    <input type="radio">C. 6 meters from the nearest rail</label><br/>
-                    <input type="radio">D. 6 meters from the nearest rail</label><br/>
-                </ul>
-        </form>
-       
-    <!-- Div for end of game display area -->
+            <title class="questionAsk"></title>
+            <!-- Div for end of game display area-->
     </div>
     </section>
 
-    <!-- Game Control Areas -->
-    <section class="controls">
-    <button class="btn">Enter</button>
-    <button class="btn">Submit</button>
-    <button class="btn">Go Back</button>
-    <button class="btn">Clear High Scores</button>
+<!-- Game Control Areas -->
+    <section class="game_controls">
+    <button class="play_game">Submit</button>
+    <button class="startQuiz">Start</button>
     </section>
-    <div class="game_results">Correct!/Wrong!</div>
+    <div class="game_results"></div>
 </div>
 <!-- End of Control Area -->
-
 <!-- end of question area  -->
 
   <!-- Added link to the jQuery library -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script type="text/javascript" src="./assets/js/"></script>
+  <script type="text/javascript" src="./assets/script.js"></script>
 </body>
 
 </html>
-
-
-<!-- future or hidden text:
-
-Who is known as the father of computers?
-*Charles Babbage
-Thomas Edison 
-Alan Turning 
-Ada Lovelace
-
-What was the first computer to use color? 
-*Apple 1 
-Apple 1.5 
-IBM 650
-ipod shuffle  
-
-What was the first mass produced computer? 
-*IBM 650
-Apple Macbook
-Lonovo 150
-IBM 550 
-
-How many generations of computers are there? 
-*5
-200
-3
-10 
-
-How many langauges of coding exist? 
-700 
-365
-500
-400
-
-All Done! 
-your score is: 
-Enter initials: 
-
-Correct! 
-Incorrect!  -->
 

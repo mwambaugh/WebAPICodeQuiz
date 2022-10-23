@@ -10,10 +10,71 @@ high scores page*/
 
 
 //DOM hooks:create variables for the elements that will receive input, that will display feedback
-var quizQuestions= querySelector, (.questionAsk);
+//need to update the questions being shown 
+var quizQuestions= document.querySelector(".questionAsk");
+//need to update the high scores 
+var scoreEl = document.querySelector(".scoreboard_score");
+// need to update the timer
+var timerEl = document.querySelector(".game_timer");
+//need to update/change the game control buttons 
+var controlsEl = document.querySelector(".game_controls");
+var startQuizButtonEl = document.querySelector(".startQuiz")
+//need to update the question results but this might be built into the questions bit. 
+var correctEl = document.querySelector(".game_results");
+var gameDisEl = document.querySelector(".game_display");
+
+
+//State variables: What objects do I have to keep track of? 
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var nameEntered = "Marta";
+var highScore = 0; 
+var timer = null;
+var timeLeft = 0;
+var currentQuestionIndex; 
+var userQuestionAnswer; 
+
+var gameDuration = 20; 
+
+//Event: Page Load
+function init() {}
+console.log("game loading...");
+
+
+//event for click start quiz 
+function handleClickStart(ev){
+  console.log ("game started!")
+}
+startQuizButtonEl.addEventListener("click", handleClickStart);
+
+//Event: timer tick
+
+function handleTimerTick(ev) {
+  console.log("timer ticked!");
+}
+
+//Event: Submit answer 
+function handleSubmitAnswer(ev){
+  console.log("quiz answer submitted:", ev.click);
+}
+document.addEventListener("click", handleSubmitAnswer);
+//Event: Go back 
+function handleGoBack()
+
+//Event: end quiz
+function handleQuizEnds()
+
+//Event: show high scores 
+
+//Event: Enter name with high scores 
+
+//Place this at the end of the page: 
+init()
+
+//refractor - tasks that can be broken into their own functions, outside an event handlers 
 
 // Array of objects for each question and choices, key:values of each question 
-var quizQuestions = [
+var quizQuestions=[
 {
 Question: "Who is known as the father of computers?",
 options: {
@@ -76,7 +137,7 @@ correct:"Turquoise"
 }
 
 
-If quizQuestions[0].options.AnswerA equals quizQuestions[0].correct then display.document.alert= "Correct!"
+If quizQuestions[0].options.AnswerA quizQuestions[0].correct then display.document.alert= "Correct!"
 
 
 /*Declare variables: state: What are the datq that need to be kept track of? 
