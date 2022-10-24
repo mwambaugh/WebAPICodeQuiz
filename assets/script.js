@@ -17,7 +17,8 @@ var timerEl = document.querySelector(".game_timer");
 var controlsEl = document.querySelector(".game_controls");
 var startQuizButtonEl = document.querySelector(".startQuiz")
 //need to update the question results but this might be built into the questions bit. 
-var incorrectEl = document.querySelector(".game_resultsNeg");
+var incorrectEl = document.querySelector("#incorrect");
+var correctEl = document.querySelector("#correct");
 var gameDisEl = document.querySelector(".game_display");
 var quizResultsEl = document.querySelector(".game_results");
 
@@ -38,18 +39,18 @@ var kStorageKey = "challenge-4-key"
 //Event: Page Load
 function init() {
 console.log("game loading...");
-
+}
 //retrieve data from persistance
 var scores = JSON.parse(localStorage.getItem(kStorageKey));
 
 //update state
-if(scores) {
-  wins = scores.correct;
-  losses= scores.incorrect;
-}
+// if(scores) {
+//   wins = scores.correct;
+//   losses= scores.incorrect;
+// }
 
-updateScoreBoard();
-};
+// updateScoreBoard();
+// };
 
 //event for click start quiz 
 function handleClickStart(ev){
@@ -100,28 +101,28 @@ function handleTimerTick(ev) {
 //Event: Submit answer 
 function handleSubmitAnswer(ev){
   console.log("quiz answer submitted:", ev.click);
-}
+};
+
 document.addEventListener("click", handleSubmitAnswer);
 //Event: Go back 
-function handleGoBack()
+function handleGoBack(){};
 
 //Event: end quiz
 function handleQuizEnds(ev){
   console.log("quiz has ended");
-}
+};
 document.addEventListener("click", handleQuizEnds);
 
 //function to hide the start button
 function hideElement (el){
   el.classList.add("hide");
-}
+};
 
 function showElement (el){
   el.classList.remove("hide");
-}
+};
 
 function handleQuizEnds(didWin){}
-
 
 //Event: show high scores 
 
@@ -190,7 +191,7 @@ options: {
   AnswerD:"Off-Yellow",
 },
 correct:"Turquoise"
-}
+}]
 
 
 // If quizQuestions[0].options.AnswerA quizQuestions[0].correct then display.document.alert= "Correct!"
@@ -236,13 +237,13 @@ It’s a common tool for coordinating code. For example, once you update state, 
     - Are there tasks that more than one event handler share?
 */
 
-function updateScoreBoard(){
-  // Update the UI based on state 
-  correctEl.textContent = wins;
-  incorrectEl.textContent = losses;
-} 
+// function updateScoreBoard(){
+//   // Update the UI based on state 
+//   correctEl.textContent = wins;
+//   incorrectEl.textContent = losses;
+// } 
 
 
 // Start the Game
 //Place this at the end of the page: 
-init()
+init();
