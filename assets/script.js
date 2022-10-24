@@ -2,15 +2,15 @@
 //DOM hooks:create variables for the elements that will receive input, that will display feedback
 var scoreEl = document.querySelector(".scoreboard_score");
 // need to update the timer
-var timerEl = document.querySelector(".game_timer");
+var timerEl = document.querySelector(".quiz_timer");
 //need to update/change the game control buttons 
-var controlsEl = document.querySelector(".game_controls");
+var controlsEl = document.querySelector(".quiz_controls");
 var startQuizButtonEl = document.querySelector(".startQuiz")
 //need to update the question results but this might be built into the questions bit. 
 var incorrectEl = document.querySelector("#incorrect");
 var correctEl = document.querySelector("#correct");
-var gameDisEl = document.querySelector(".game_display");
-var quizResultsEl = document.querySelector(".game_results");
+var gameDisEl = document.querySelector(".quiz_display");
+var quizResultsEl = document.querySelector(".quiz_results");
 var submitAnswerButtonEl = document.querySelector(".submitAnswer");
 
 
@@ -29,7 +29,7 @@ var kStorageKey = "challenge-4-key"
 
 //Event: Page Load
 function init() {
-console.log("game loading...");
+console.log("Quiz loading...");
 }
 
 //Retrieve data from Local Storage
@@ -37,31 +37,30 @@ var scores = JSON.parse(localStorage.getItem(kStorageKey));
 
 //event for click start quiz 
 function handleClickStart(ev){
-  console.log ("game started!");
+  console.log ("Quiz started!");
   console.log(ev.target);
 
   if(!timer){}
   //set time left 
   timeLeft = gameDuration
   timer = setInterval(handleTimerTick, 1000);
-  
-  //set the current questions
-  //I don't think i need this? 
   questionIndex = Math.floor(Math.random()* quizQuestions.length);
 
-  //choose answer option from multiple choice 
-    //I don't think i need this? 
+timerEl.textContent= timeLeft;
+
+  for (let i = 0; i < quizQuestions.length ; i++) {;
+  displayQuestion(i)}
 
   //hide the start button 
   hideElement(controlsEl);
 
-  //hide game results 
+  //hide quiz results 
   hideElement(quizResultsEl);
   
   //show timer 
   showElement(timerEl);
   
-  //show gameboard 
+  //show quiz
   showElement(scoreEl);
 
 }
@@ -70,34 +69,45 @@ startQuizButtonEl.addEventListener("click", handleClickStart);
 //Event: timer tick
 
 function handleTimerTick(ev) {
-  console.log("timer ticked!");
   timer--;
+  console.log("timer ticked!",timeLeft);
+ 
 
   timerEl.textContent = timeLeft;
-  if(timeLeft===0){
+  if(timeLeft === 0){
     handleQuizEnds();
   }
 }
 
-//Event: Submit answer 
+//Event: Submit quiz answer 
 function handleSubmitAnswer(ev){
   console.log("quiz answer submitted:");
   console.log(ev.target);
 };
 
 document.addEventListener("click", handleSubmitAnswer);
+
 //Event: Go back 
 function handleGoBack(){};
 
 //Event: end quiz
-function handleQuizEnds(ev){
-  console.log("quiz has ended");
+function handleQuizEnds(){
+ clearInterval(timer);
+ timer = null;
+
+ if (didWin) {correctAnswers++
+} else {
+  incorrectAnswers++
+}
+
+localStorage.setItem(kStorageKey,JSON.stringify({correct, incorrect}));
+
+updateScoreboard();
 };
-document.addEventListener("click", handleQuizEnds);
 
 //function to hide the start button
 function hideElement (el){
-  el.classList.add("hide");
+  el.classList.add("hide");timeLeft
 };
 
 function showElement (el){
@@ -107,10 +117,14 @@ function showElement (el){
 function handleQuizEnds(){}
 
 function displayQuestion (questionIndex){
- quizQuestions((question) = question.options).createElements()
- quizQuestions[questionsIndex]
+//  quizQuestions((question) = question.options).createElements();
+ quizQuestions[questionIndex];
  console.log(quizQuestions[questionIndex])
+ var printQuestions = document.createElement("h2");
+ displayQuestion.textContent;
+ appendChild(quizQuestions);
 }; 
+
 
 var quizQuestions=[
 {
