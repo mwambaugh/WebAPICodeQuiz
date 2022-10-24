@@ -1,8 +1,5 @@
 
 //DOM hooks:create variables for the elements that will receive input, that will display feedback
-//need to update the questions being shown 
-var quizQuestionsEl= document.querySelector(".questionAsk");
-//need to update the high scores 
 var scoreEl = document.querySelector(".scoreboard_score");
 // need to update the timer
 var timerEl = document.querySelector(".game_timer");
@@ -24,17 +21,18 @@ var nameEntered = "Marta";
 var highScore = 0; 
 var timer = null;
 var timeLeft = 0;
-var currentQuestionIndex; 
+var questionIndex; 
 var userQuestionAnswer = [ ]
 
-var gameDuration = 20; 
+var gameDuration = 200; 
 var kStorageKey = "challenge-4-key"
 
 //Event: Page Load
 function init() {
 console.log("game loading...");
 }
-//retrieve data from persistance
+
+//Retrieve data from Local Storage
 var scores = JSON.parse(localStorage.getItem(kStorageKey));
 
 //event for click start quiz 
@@ -46,17 +44,25 @@ function handleClickStart(ev){
   //set time left 
   timeLeft = gameDuration
   timer = setInterval(handleTimerTick, 1000);
+  
   //set the current questions
-  currentQuestionIndex = Math.fllor(Math.random()* quizQuestions.length);
+  //I don't think i need this? 
+  questionIndex = Math.floor(Math.random()* quizQuestions.length);
+
   //choose answer option from multiple choice 
+    //I don't think i need this? 
+
   //hide the start button 
   hideElement(controlsEl);
+
   //hide game results 
   hideElement(quizResultsEl);
+  
   //show timer 
   showElement(timerEl);
+  
   //show gameboard 
-  showElement(quizQuestionsEl);
+  showElement(scoreEl);
 
 }
 startQuizButtonEl.addEventListener("click", handleClickStart);
@@ -69,7 +75,7 @@ function handleTimerTick(ev) {
 
   timerEl.textContent = timeLeft;
   if(timeLeft===0){
-    handleQuizEnds(false);
+    handleQuizEnds();
   }
 }
 
@@ -98,10 +104,15 @@ function showElement (el){
   el.classList.remove("hide");
 };
 
-function handleQuizEnds(didWin){}
+function handleQuizEnds(){}
 
+function displayQuestion (questionIndex){
+ quizQuestions((question) = question.options).createElements()
+ quizQuestions[questionsIndex]
+ console.log(quizQuestions[questionIndex])
+}; 
 
-var quizQuestionsEl=[
+var quizQuestions=[
 {
 Question: "Who is known as the father of computers?",
 options: {
@@ -151,16 +162,6 @@ options: {
   AnswerD:"700",
 },
 correct:"700"
-},
-
-{Question: "What is my favorite color?",
-options: {
-  AnswerA:"Blue",
-  AnswerB:"Green",
-  AnswerC:"Turquoise",
-  AnswerD:"Off-Yellow",
-},
-correct:"Turquoise"
 }]
 
 init();
