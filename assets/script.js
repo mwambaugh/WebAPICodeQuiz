@@ -103,6 +103,7 @@ function handleQuizEnds(){
 localStorage.setItem(kStorageKey,JSON.stringify({correct, incorrect}));
 
 updateScoreboard();
+showElement(controlsEl);
 };
 
 //function to hide the start button
@@ -113,6 +114,20 @@ function hideElement (el){
 function showElement (el){
   el.classList.remove("hide");
 };
+
+function displayResult(correctAnswers){
+  hideElement(timerEl);
+
+  if(correctAnswers){
+    quizResultsEl.textContent = "Answer is correct.";
+    quizResultsEl.classList.add = "success";
+  } else {
+    quizResultsEl.textContent = "Answer is incorrect.";
+    quizResultsEl.classList.add = "wrong";
+  }
+
+}
+
 
 function handleQuizEnds(){}
 
