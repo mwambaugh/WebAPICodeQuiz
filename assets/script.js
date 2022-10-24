@@ -1,17 +1,14 @@
-/*
-timer
-timer starts with start button (CLICK)
-Question -> submit answer (CLICK)-> if true = time same ->if false = time subtract
-when time === 0 means 'out of time submit your initals score' prompt 
-submit initials (CLICK)
-initals and high score saved into high scores page (push to scores array...in numerical order) 
-high scores link 
-high scores page*/
+
+// when time === 0 means 'out of time submit your initals score' prompt 
+// submit initials (CLICK)
+// initals and high score saved into high scores page (push to scores array...in numerical order) 
+// high scores link 
+// high scores page*/
 
 
 //DOM hooks:create variables for the elements that will receive input, that will display feedback
 //need to update the questions being shown 
-var quizQuestions= document.querySelector(".questionAsk");
+var quizQuestionsEl= document.querySelector(".questionAsk");
 //need to update the high scores 
 var scoreEl = document.querySelector(".scoreboard_score");
 // need to update the timer
@@ -20,8 +17,9 @@ var timerEl = document.querySelector(".game_timer");
 var controlsEl = document.querySelector(".game_controls");
 var startQuizButtonEl = document.querySelector(".startQuiz")
 //need to update the question results but this might be built into the questions bit. 
-var correctEl = document.querySelector(".game_results");
+var incorrectEl = document.querySelector(".game_resultsNeg");
 var gameDisEl = document.querySelector(".game_display");
+var quizResultsEl = document.querySelector(".game_results");
 
 
 //State variables: What objects do I have to keep track of? 
@@ -32,18 +30,58 @@ var highScore = 0;
 var timer = null;
 var timeLeft = 0;
 var currentQuestionIndex; 
-var userQuestionAnswer; 
+var userQuestionAnswer = [ ]
 
 var gameDuration = 20; 
+var kStorageKey = "challenge-4-key"
 
 //Event: Page Load
-function init() {}
+function init() {
 console.log("game loading...");
 
+//retrieve data from persistance
+var scores = JSON.parse(localStorage.getItem(kStorageKey));
+
+//update state
+if(scores) {
+  wins = scores.correct;
+  losses= scores.incorrect;
+}
+
+updateScoreBoard();
+};
 
 //event for click start quiz 
 function handleClickStart(ev){
   console.log ("game started!")
+
+  if(!timer){}
+  //set time left 
+  timeLeft = gameDuration
+  timer = setInterval(handleTimerTick, 1000);
+  //set the current questions
+  currentQuestionIndex = Math.fllor(math.random()* quizQuestions.length);
+  //choose answer option from multiple choice 
+  //hide the start button 
+  hideElement(controlsEl);
+  //hide game results 
+  hideElement(quizResultsEl);
+  //show timer 
+  showElement(timerEl);
+  //show gameboard 
+  showElement(quizQuestionsEl);
+  // start timer
+
+  //set the time left  
+
+  //reset the display
+
+  //hide any messages of the correct/ incorrect 
+
+  //show timer when we start a new question 
+
+  //show gameboard 
+
 }
 startQuizButtonEl.addEventListener("click", handleClickStart);
 
@@ -51,6 +89,12 @@ startQuizButtonEl.addEventListener("click", handleClickStart);
 
 function handleTimerTick(ev) {
   console.log("timer ticked!");
+  timer--;
+
+  timerEl.textContent = timeLeft;
+  if(timeLeft===0){
+    handleQuizEnds(false);
+  }
 }
 
 //Event: Submit answer 
@@ -62,19 +106,31 @@ document.addEventListener("click", handleSubmitAnswer);
 function handleGoBack()
 
 //Event: end quiz
-function handleQuizEnds()
+function handleQuizEnds(ev){
+  console.log("quiz has ended");
+}
+document.addEventListener("click", handleQuizEnds);
+
+//function to hide the start button
+function hideElement (el){
+  el.classList.add("hide");
+}
+
+function showElement (el){
+  el.classList.remove("hide");
+}
+
+function handleQuizEnds(didWin){}
+
 
 //Event: show high scores 
 
 //Event: Enter name with high scores 
 
-//Place this at the end of the page: 
-init()
-
 //refractor - tasks that can be broken into their own functions, outside an event handlers 
 
 // Array of objects for each question and choices, key:values of each question 
-var quizQuestions=[
+var quizQuestionsEl=[
 {
 Question: "Who is known as the father of computers?",
 options: {
@@ -137,8 +193,10 @@ correct:"Turquoise"
 }
 
 
-If quizQuestions[0].options.AnswerA quizQuestions[0].correct then display.document.alert= "Correct!"
+// If quizQuestions[0].options.AnswerA quizQuestions[0].correct then display.document.alert= "Correct!"
 
+// //Place this at the end of the page: 
+// init()
 
 /*Declare variables: state: What are the datq that need to be kept track of? 
 Global state variables sometimes emerge while working on event handlers (i.e., it becomes clearer what needs to be tracked across the application)
@@ -173,7 +231,18 @@ It’s a common tool for coordinating code. For example, once you update state, 
 */
 
 /*
- 6. Refactor
+ 6. Refactor - Helper functions
     - identify tasks that can be broken into their own functions, outside the event handlers
     - Are there tasks that more than one event handler share?
 */
+
+function updateScoreBoard(){
+  // Update the UI based on state 
+  correctEl.textContent = wins;
+  incorrectEl.textContent = losses;
+} 
+
+
+// Start the Game
+//Place this at the end of the page: 
+init()
