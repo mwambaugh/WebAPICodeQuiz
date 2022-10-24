@@ -116,6 +116,8 @@ function showElement (el){
 };
 
 function displayResult(correctAnswers){
+  quizResultsEl.classList.remove = "success";
+  quizResultsEl.classList.remove = "wrong";
   hideElement(timerEl);
 
   if(correctAnswers){

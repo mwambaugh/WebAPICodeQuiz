@@ -6,6 +6,8 @@
   --shadow: rgb(44, 43, 38);
   --medium: rgb(109, 93, 71);
   --lightb: rgb(162, 200, 209);
+  --success: rgb(107, 150, 107);
+  --wrong: rgb(180, 118, 118);
 }
 
 /* Responsive Size Overall*/
@@ -15,6 +17,16 @@
 
 .hide{
   display:none !important;
+}
+
+.success{
+  background-color: var(--success);
+  color:var(--dark);
+}
+
+.wrong{
+  background-color: var(--wrong);
+  color: var(--dark);
 }
 
 .container{
