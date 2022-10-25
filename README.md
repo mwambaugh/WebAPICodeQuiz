@@ -14,13 +14,12 @@ SO THAT I can gauge my progress compared to my peers
 
 # Links 
 [Link to Deployed API Multiple Choice Quiz Live Page](https://mwambaugh.github.io/WebAPICodeQuiz/)
-[Link to GitHub Code: API Multiple Choice Quiz] (https://github.com/mwambaugh/WebAPICodeQuiz)
+[Link to GitHub Code: API Multiple Choice Quiz](https://github.com/mwambaugh/WebAPICodeQuiz)
 
 # Visuals
 ![Second Screenshot: ](./assets/photos/Screenshot%202022-10-24%20225604.png)
 ![Third Screenshot: ](./assets/photos/Screenshot%202022-10-24%20225638.png)
 ![Fourth Screenshot: ](./assets/photos/Screenshot%202022-10-24%20225651.png)
-![Fifth Screenshot: ]()
 
 
 
